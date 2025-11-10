@@ -1,0 +1,65 @@
+{
+  "name": "ifscfinder-ts",
+  "version": "0.1.0",
+  "description": "High-performance IFSC code lookup utilities backed by SQLite for Node.js - TypeScript SDK from IFSCFinder project",
+  "keywords": ["ifsc", "ifscfinder", "banking", "lookup", "sqlite", "finance", "indian-banks", "node", "nodejs", "typescript", "sdk"],
+  "license": "LGPL-2.1",
+  "author": {
+    "name": "Akshat Kotpalliwar (alias IntegerAlex)",
+    "email": "akshatkot@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/IntegerAlex/IFSCFinder.git",
+    "directory": "clients/typescript"
+  },
+  "homepage": "https://github.com/IntegerAlex/IFSCFinder",
+  "bugs": "https://github.com/IntegerAlex/IFSCFinder/issues",
+  "engines": {
+    "node": ">=18"
+  },
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "assets/ifsc.db",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "postinstall": "npm run rebuild:sqlite || echo 'Note: If using pnpm, run: pnpm rebuild better-sqlite3'",
+    "rebuild:sqlite": "npm rebuild better-sqlite3",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "bench": "tsx benchmarks/bench.ts",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src tests benchmarks --ext .ts",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.8.1"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.12",
+    "@types/node": "^22.10.2",
+    "@typescript-eslint/eslint-plugin": "^8.19.1",
+    "@typescript-eslint/parser": "^8.19.1",
+    "eslint": "^9.17.0",
+    "tinybench": "^2.9.0",
+    "tsup": "^8.3.5",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  }
+}
+
