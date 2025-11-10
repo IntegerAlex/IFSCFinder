@@ -1,0 +1,1 @@
+"""IFSCFinder examples package."""
