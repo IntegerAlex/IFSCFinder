@@ -1,0 +1,11 @@
+.performanceChart {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: var(--ifsc-light);
+  border-radius: 0.5rem;
+}
+
+[data-theme='dark'] .performanceChart {
+  background: var(--ifsc-dark);
+}
+

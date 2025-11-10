@@ -1,0 +1,13 @@
+{
+  // This file is not used in compilation, it is here just for IDE support.
+  "extends": "@tsconfig/docusaurus/tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "jsx": "react-jsx",
+    "esModuleInterop": true,
+    "paths": {
+      "@site/*": ["./*"]
+    }
+  }
+}
+
