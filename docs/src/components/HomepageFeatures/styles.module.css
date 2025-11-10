@@ -1,12 +1,43 @@
+/**
+ * Homepage Features Styles - Minimal & Professional
+ */
+
 .features {
   display: flex;
   align-items: center;
-  padding: 2rem 0;
+  padding: 80px 24px;
   width: 100%;
+  background: var(--ifsc-background);
+}
+
+@media screen and (max-width: 996px) {
+  .features {
+    padding: 64px 24px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .features {
+    padding: 48px 16px;
+  }
 }
 
 .featureSvg {
-  height: 200px;
-  width: 200px;
+  height: 64px;
+  width: 64px;
+  margin-bottom: 24px;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
 }
 
+.featureSvg:hover {
+  opacity: 1;
+}
+
+@media screen and (max-width: 768px) {
+  .featureSvg {
+    height: 48px;
+    width: 48px;
+    margin-bottom: 16px;
+  }
+}

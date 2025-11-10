@@ -5,7 +5,7 @@ import styles from './styles.module.css';
 type FeatureItem = {
   title: string;
   Svg: React.ComponentType<React.ComponentProps<'svg'>>;
-  description: JSX.Element;
+  description: React.ReactNode;
 };
 
 const FeatureList: FeatureItem[] = [
@@ -14,8 +14,9 @@ const FeatureList: FeatureItem[] = [
     Svg: require('@site/static/img/lightning.svg').default,
     description: (
       <>
-        Sub-millisecond query times with 136K+ lookups/second. Optimized SQLite
-        database with WAL mode and prepared statements for maximum performance.
+        <strong>136K+ lookups/second</strong> with sub-millisecond query times.
+        Optimized SQLite with WAL mode and prepared statements for maximum
+        throughput.
       </>
     ),
   },
@@ -24,8 +25,8 @@ const FeatureList: FeatureItem[] = [
     Svg: require('@site/static/img/cross-platform.svg').default,
     description: (
       <>
-        Available for Python, TypeScript, Go, and Rust with consistent APIs.
-        Same interface, same performance, different languages.
+        Consistent APIs across <strong>Python, TypeScript, Go, and Rust</strong>.
+        Same interface, same performance—choose your language.
       </>
     ),
   },
@@ -34,8 +35,8 @@ const FeatureList: FeatureItem[] = [
     Svg: require('@site/static/img/zero-deps.svg').default,
     description: (
       <>
-        Bundled 42MB SQLite database covering all Indian banks. No external
-        dependencies or API calls required. Works offline.
+        Complete <strong>42MB SQLite database</strong> bundled with all Indian
+        banks. No external APIs, no network calls—works completely offline.
       </>
     ),
   },
@@ -44,8 +45,8 @@ const FeatureList: FeatureItem[] = [
     Svg: require('@site/static/img/production.svg').default,
     description: (
       <>
-        Built-in caching, error handling, and comprehensive test coverage.
-        Suitable for banking automation, fintech analytics, and microservices.
+        Built-in <strong>LRU caching</strong>, comprehensive error handling, and
+        extensive test coverage. Trusted for banking automation and fintech.
       </>
     ),
   },
@@ -54,8 +55,8 @@ const FeatureList: FeatureItem[] = [
     Svg: require('@site/static/img/typesafe.svg').default,
     description: (
       <>
-        Full TypeScript support with comprehensive type definitions. Catch
-        errors at compile time, not runtime.
+        Full <strong>TypeScript support</strong> with complete type definitions.
+        Catch errors at compile time, ship with confidence.
       </>
     ),
   },
@@ -64,8 +65,8 @@ const FeatureList: FeatureItem[] = [
     Svg: require('@site/static/img/opensource.svg').default,
     description: (
       <>
-        LGPL-2.1 licensed for flexible commercial and open-source usage.
-        Community-driven development with transparent roadmap.
+        <strong>LGPL-2.1 licensed</strong> for commercial and open-source use.
+        Community-driven with transparent development and roadmap.
       </>
     ),
   },
@@ -85,7 +86,7 @@ function Feature({title, Svg, description}: FeatureItem) {
   );
 }
 
-export default function HomepageFeatures(): JSX.Element {
+export default function HomepageFeatures() {
   return (
     <section className={styles.features}>
       <div className="container">

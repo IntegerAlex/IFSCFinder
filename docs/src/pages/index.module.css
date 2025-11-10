@@ -1,19 +1,24 @@
 /**
- * CSS modules are scoped by default.
- * The styles defined here will only apply to the Homepage component.
+ * Homepage Styles - Minimal & Professional
  */
 
 .heroBanner {
-  padding: 4rem 0;
+  padding: 80px 0 64px;
   text-align: center;
   position: relative;
-  overflow: hidden;
-  background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+  background: var(--ifsc-background);
+  border-bottom: 1px solid var(--ifsc-border);
 }
 
 @media screen and (max-width: 996px) {
   .heroBanner {
-    padding: 2rem;
+    padding: 64px 24px 48px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .heroBanner {
+    padding: 48px 16px 40px;
   }
 }
 
@@ -21,7 +26,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
+  gap: 16px;
   flex-wrap: wrap;
+  margin-top: 40px;
 }
 
+@media screen and (max-width: 768px) {
+  .buttons {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
