@@ -11,8 +11,12 @@ const config: Config = {
   url: 'https://integeralex.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  // Use '/' for local development, '/IFSCFinder/' for production
-  baseUrl: process.env.NODE_ENV === 'development' ? '/' : '/IFSCFinder/',
+  // Vercel serves from root, GitHub Pages from subdirectory
+  baseUrl: process.env.VERCEL || process.env.NODE_ENV === 'development' 
+    ? '/' 
+    : process.env.GITHUB_PAGES === 'true' 
+      ? '/IFSCFinder/' 
+      : '/',
 
   // GitHub pages deployment config.
   organizationName: 'IntegerAlex',

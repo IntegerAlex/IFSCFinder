@@ -41,6 +41,8 @@ jobs:
 
       - name: Build documentation
         working-directory: docs
+        env:
+          GITHUB_PAGES: 'true'
         run: npm run build
 
       - name: Setup Pages
