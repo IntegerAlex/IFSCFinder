@@ -1,6 +1,15 @@
 IFSC Platform
 =============
 
+[![PyPI Downloads](https://img.shields.io/pypi/dm/ifscfinder?label=PyPI%20Downloads&logo=pypi&logoColor=white)](https://pypi.org/project/ifscfinder/)
+[![npm Downloads](https://img.shields.io/npm/dm/ifscfinder-ts?label=npm%20Downloads&logo=npm&logoColor=white)](https://www.npmjs.com/package/ifscfinder-ts)
+[![License: LGPL-2.1](https://img.shields.io/badge/License-LGPL--2.1-blue.svg)](https://www.gnu.org/licenses/lgpl-2.1.html)
+[![GitHub Actions](https://img.shields.io/github/actions/workflow/status/IntegerAlex/IFSCFinder/.github/workflows/main.yml?branch=master&logo=github-actions&logoColor=white)](https://github.com/IntegerAlex/IFSCFinder/actions)
+[![GitHub Stars](https://img.shields.io/github/stars/IntegerAlex/IFSCFinder?logo=github)](https://github.com/IntegerAlex/IFSCFinder)
+[![GitHub Forks](https://img.shields.io/github/forks/IntegerAlex/IFSCFinder?logo=github)](https://github.com/IntegerAlex/IFSCFinder)
+[![Python Version](https://img.shields.io/pypi/pyversions/ifscfinder?logo=python&logoColor=white)](https://pypi.org/project/ifscfinder/)
+[![Node Version](https://img.shields.io/node/v/ifscfinder-ts?logo=node.js&logoColor=white)](https://www.npmjs.com/package/ifscfinder-ts)
+
 This repository hosts the cross-platform IFSCFinder initiative - a comprehensive suite for high-performance IFSC code lookups across multiple programming languages. The Python package serves as the canonical implementation, providing sub-millisecond query performance with a 42MB embedded database covering India's complete banking network.
 
 **Key Features:**
