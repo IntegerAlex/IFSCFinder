@@ -43,6 +43,7 @@ const config: Config = {
       'classic',
       {
         docs: {
+          routeBasePath: '/',
           sidebarPath: './sidebars.ts',
           editUrl: 'https://github.com/IntegerAlex/IFSCFinder/tree/main/',
           showLastUpdateAuthor: true,
@@ -96,33 +97,12 @@ const config: Config = {
           title: 'Documentation',
           items: [
             {
-              label: 'Getting Started',
-              to: '/docs/getting-started/installation',
+              label: 'Docs',
+              to: '/',
             },
-            {
-              label: 'API Reference',
-              to: '/docs/api/overview',
-            },
-            {
-              label: 'Architecture',
-              to: '/docs/architecture/overview',
-            },
-          ],
-        },
-        {
-          title: 'Community',
-          items: [
             {
               label: 'GitHub',
               href: 'https://github.com/IntegerAlex/IFSCFinder',
-            },
-            {
-              label: 'Issues',
-              href: 'https://github.com/IntegerAlex/IFSCFinder/issues',
-            },
-            {
-              label: 'Discussions',
-              href: 'https://github.com/IntegerAlex/IFSCFinder/discussions',
             },
           ],
         },
@@ -146,23 +126,19 @@ const config: Config = {
               label: 'License (LGPL-2.1)',
               href: 'https://github.com/IntegerAlex/IFSCFinder/blob/main/LICENSE',
             },
-            {
-              label: 'Copyright',
-              to: '/docs/legal/copyright',
-            },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Akshat Kotpalliwar. All rights reserved. Licensed under LGPL-2.1.`,
+      copyright: `Copyright © ${new Date().getFullYear()} <a href="https://www.akshatkotpalliwar.in/" target="_blank" rel="noopener">Akshat Kotpalliwar</a>. All rights reserved. Licensed under LGPL-2.1.`,
     },
     prism: {
       theme: prismThemes.github,
-      darkTheme: prismThemes.vsDark,
       additionalLanguages: ['python', 'typescript', 'bash', 'json'],
     },
     colorMode: {
       defaultMode: 'light',
-      respectPrefersColorScheme: true,
+      disableSwitch: true,
+      respectPrefersColorScheme: false,
     },
     algolia: {
       // The application ID provided by Algolia
