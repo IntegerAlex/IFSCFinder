@@ -1,8 +1,20 @@
 {
   "name": "ifscfinder-ts",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "High-performance IFSC code lookup utilities backed by SQLite for Node.js - TypeScript SDK from IFSCFinder project",
-  "keywords": ["ifsc", "ifscfinder", "banking", "lookup", "sqlite", "finance", "indian-banks", "node", "nodejs", "typescript", "sdk"],
+  "keywords": [
+    "ifsc",
+    "ifscfinder",
+    "banking",
+    "lookup",
+    "sqlite",
+    "finance",
+    "indian-banks",
+    "node",
+    "nodejs",
+    "typescript",
+    "sdk"
+  ],
   "license": "LGPL-2.1",
   "author": {
     "name": "Akshat Kotpalliwar (alias IntegerAlex)",
@@ -47,7 +59,7 @@
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
-    "better-sqlite3": "^11.8.1"
+    "better-sqlite3": "^12.11.1"
   },
   "devDependencies": {
     "@types/better-sqlite3": "^7.6.12",
@@ -59,7 +71,6 @@
     "tsup": "^8.3.5",
     "tsx": "^4.19.2",
     "typescript": "^5.7.2",
-    "vitest": "^2.1.8"
+    "vitest": "^3.2.6"
   }
 }
-
