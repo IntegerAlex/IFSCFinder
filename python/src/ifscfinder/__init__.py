@@ -20,11 +20,13 @@ from .utils import (
     ifsc_to_details,
     ifsc_to_state,
     ifsc_to_std_code,
+    lookup,
+    search,
 )
 
 try:
     __version__ = metadata.version("ifscfinder")
-except metadata.PackageNotFoundError:  # pragma: no cover - during local development
+except metadata.PackageNotFoundError:
     __version__ = "0.0.0"
 
 __all__ = [
@@ -42,7 +44,8 @@ __all__ = [
     "ifsc_to_state",
     "ifsc_to_std_code",
     "load_ifsc_data",
+    "lookup",
     "normalize_ifsc_code",
+    "search",
     "__version__",
 ]
-

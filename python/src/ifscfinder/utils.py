@@ -18,45 +18,61 @@ IFSC_LOOKUP_FIELDS = (
 
 @lru_cache(maxsize=1024)
 def _cached_lookup(normalized_ifsc: str) -> Optional[Dict[str, str]]:
-    """
-    Lookup details for a normalized IFSC code with caching.
-
-    Args:
-        normalized_ifsc: Upper-case, validated IFSC code.
-
-    Returns:
-        Dictionary of IFSC details or None if not found.
-    """
     db = get_database()
     if not db:
         return None
-
     result = db.lookup(normalized_ifsc)
     if not result:
         return None
-
     return {key: str(value) for key, value in result.items()}
 
 
-def ifsc_to_details(ifsc_code: str) -> Optional[Dict[str, str]]:
-    """
-    Retrieve bank metadata for an IFSC code.
-
-    Args:
-        ifsc_code: Raw IFSC code string.
-
-    Returns:
-        Dictionary of IFSC details or None.
-    """
+def lookup(ifsc_code: str) -> Optional[Dict[str, str]]:
     normalized = normalize_ifsc_code(ifsc_code)
     if normalized is None:
         return None
-
     return _cached_lookup(normalized)
 
 
+ifsc_to_details = lookup
+
+
+def search(params: dict, exact: bool = True, limit: int = 100) -> list:
+    db = get_database()
+    if not db:
+        return []
+    conditions = []
+    values = []
+    for field, db_col in [("bank", "bank"), ("branch", "branch"), ("city", "city1"), ("state", "state")]:
+        val = params.get(field)
+        if val:
+            if exact:
+                conditions.append(f"{db_col} = ?")
+                values.append(val.upper())
+            else:
+                conditions.append(f"{db_col} LIKE ?")
+                values.append(f"%{val.upper()}%")
+    if not conditions:
+        return []
+    query = f"SELECT * FROM ifsc_codes WHERE {' AND '.join(conditions)} LIMIT ?"
+    values.append(limit)
+    try:
+        rows = db._conn.execute(query, values).fetchall()
+        result = []
+        for row in rows:
+            d = {}
+            for key in row.keys():
+                val = row[key]
+                if val is not None and str(val).strip():
+                    d[key.upper()] = str(val).strip()
+            result.append(d)
+        return result
+    except Exception:
+        return []
+
+
 def _field_from_details(ifsc_code: str, field: str) -> Optional[str]:
-    details = ifsc_to_details(ifsc_code)
+    details = lookup(ifsc_code)
     return details.get(field) if details else None
 
 
@@ -89,7 +105,6 @@ def ifsc_to_std_code(ifsc_code: str) -> Optional[str]:
 
 
 def clear_lookup_cache() -> None:
-    """Invalidate the in-memory IFSC lookup cache."""
     _cached_lookup.cache_clear()
 
 
@@ -104,5 +119,6 @@ __all__ = [
     "ifsc_to_details",
     "ifsc_to_state",
     "ifsc_to_std_code",
+    "lookup",
+    "search",
 ]
-
